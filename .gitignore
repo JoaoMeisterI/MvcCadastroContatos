@@ -1,0 +1,16 @@
+# Ignore o diretório .vs
+.vs/
+
+# Ignore arquivos de log
+*.log
+
+# Ignore diretórios de build
+/build/
+/bin/
+/obj/
+
+# Ignore arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+*.bootstrap

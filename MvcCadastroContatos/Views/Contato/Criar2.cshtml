@@ -1,0 +1,39 @@
+﻿<!--Aqui passa o model da view que vai usar-->
+@model ContatoModel
+@{
+    ViewData["Title"] = "Criar Contato";
+}
+
+
+<div class="text-center">
+
+    <h1 class="display-4">Cadastrar Contatos</h1>
+
+</div>
+
+<form asp-controller="Contato" asp-action="Criar2" method="post">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Digite o nome do contato">
+        <!--Mostrando as mensagens de validação-->
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+    <!--AQUI VOCÊ INDICA O PROP DA SUA CLASSE PARA PASSAR-->
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Digite o Email do constato">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div class="form-group">
+        <label for="celular">Celular</label>
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="Digite o celular do contato">
+        @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Adicionar</button>
+    <a class="btn btn-secondary mt-4" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+
+</form>
+
+        

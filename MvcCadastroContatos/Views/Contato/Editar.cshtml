@@ -1,0 +1,40 @@
+﻿@model ContatoModel
+@{
+    ViewData["Title"] = "Editar Contato";
+}
+
+
+<div class="text-center">
+
+    <h1 class="display-4">Editar Contatos</h1>
+
+</div>
+
+<form asp-controller="Contato" asp-action="Editar" method="Post">
+    
+    <!--ADICIONANDO O ID PARA O FORM, ASSIM O FORM IDENTIFICA O ID-->
+    <!--DENTRO DO FORM ISSO-->
+    <!--<input type="hidden" asp-for="Id" />-->
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="Digite o nome do contato">
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Digite o Email do contato">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div class="form-group">
+        <label for="celular">Celular</label>
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="Digite o celular do contato">
+        @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4">Alterar</button>
+    <a class="btn btn-secondary mt-4" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+
+</form>
+
