@@ -47,3 +47,14 @@ $('.close-alert').click(function () {
     $('.alert').hide('hide');
 });
 
+//SELEÇÃO DE DROPDOWN
+$(document).ready(function () {
+    // Adiciona um evento de clique a cada item do dropdown
+    $('.dropdown-item').on('click', function (event) {
+        event.preventDefault();
+        // Obtém o valor do item clicado
+        var selectedValue = $(this).data('value');
+        // Atualiza o parágrafo com o valor selecionado
+        $('#txtPerfil').text('Selecionado: ' + selectedValue);
+    });
+});

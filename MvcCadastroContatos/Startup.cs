@@ -26,6 +26,7 @@ public class Startup
             //Indica o uso do SQLSERVER E ADICIONA O CONTEXTO DO NOSSO DB JUNTO COM A CONNECT STRING DEFINIDA NA APPSETTINGS
         .AddDbContext<BancoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataBase")));
         services.AddScoped<IContatosRepositorio, ContatosRepositorio>();
+        services.AddScoped<IUsuariosRepositiorio, UsuarioRepositorio>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
