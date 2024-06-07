@@ -13,4 +13,5 @@ public class ContatoModel
     [Required(ErrorMessage = "Telefone: Campo Obrigatório!")]
     [Phone(ErrorMessage = "Telefone: Formato inválido!")]
     public string Telefone { get; set; }   
+    public UsuarioModel usuario { get; set; }
 }

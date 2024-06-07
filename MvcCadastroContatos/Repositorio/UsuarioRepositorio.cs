@@ -1,5 +1,6 @@
 ﻿using MvcCadastroContatos.Data;
 using MvcCadastroContatos.Models;
+using System.Linq;
 
 namespace MvcCadastroContatos.Repositorio;
 
@@ -26,6 +27,22 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
         return usuario;
     }
 
+    public bool Apagar(int id)
+    {
+        try
+        {
+            UsuarioModel usuarioDeletado = BuscarUserId(id);
+            _bancoContext.Usuarios.Remove(usuarioDeletado);
+            _bancoContext.SaveChanges();
+            return true;
+        }
+        catch (Exception erro)
+        {
+            throw new System.Exception($"Não foi possível remover o usuário , ERRO: {erro}");
+        }
+        
+    }
+
     public UsuarioModel Atualizar(UsuarioModel usuario)
     {
         UsuarioModel usuarioAtualizado = BuscarUserId(usuario.Id);
@@ -46,5 +63,18 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
     public UsuarioModel BuscarUserId(int id)
     {
         return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
+    }
+
+    public UsuarioModel ValidaUser(UsuarioModel usuario)
+    {
+        try
+        {
+            UsuarioModel usuarioExistente = _bancoContext.Usuarios.FirstOrDefault(x => x.Login == usuario.Login && x.Senha == usuario.Senha);
+            return usuarioExistente;
+        }
+        catch (Exception erro)
+        {
+            return null;
+        } 
     }
 }

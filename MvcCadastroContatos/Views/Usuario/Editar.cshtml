@@ -37,6 +37,15 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-primary mt-4">Editar</button>
-    <a class="btn btn-secondary mt-4" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-primary mt-4">Editar</button>
+            <a class="btn btn-secondary mt-4" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+        </div>
+        <div class="col-md-4 text-right">
+            <a class="btn btn-secondary bg-danger mt-4" asp-controller="Usuario" asp-action="Deletar" asp-route-id="@Model.Id">Excluir</a>
+        </div>
+    </div>
+
+   
 </form>

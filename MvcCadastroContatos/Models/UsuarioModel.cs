@@ -1,4 +1,5 @@
-﻿using MvcCadastroContatos.Enum;
+﻿using Microsoft.Extensions.Hosting;
+using MvcCadastroContatos.Enum;
 
 namespace MvcCadastroContatos.Models;
 
@@ -12,4 +13,6 @@ public class UsuarioModel
     public string Senha { get; set; }
     public DateTime DataCadastro { get; set; }
     public DateTime DataAtualizacao { get; set; }
+    public ICollection<ContatoModel>? ContatosUsuário { get; set;}
+
 }

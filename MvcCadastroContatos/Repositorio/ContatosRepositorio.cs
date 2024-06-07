@@ -21,7 +21,6 @@ namespace MvcCadastroContatos.Repositorio
             _bancoContext.SaveChanges();
             return contato;
         }
-
         public ContatoModel Atualizar(ContatoModel contato)
         {
             //Buscando por Id
@@ -40,19 +39,16 @@ namespace MvcCadastroContatos.Repositorio
             _bancoContext.SaveChanges();
             return contatoAtualizar;
         }
-
         //PRECISAMOS BUSCAR O CONTATO POR ID
         public ContatoModel BuscaContatoId(int id)
         {
             return _bancoContext.Contatos.FirstOrDefault(x=>x.Id==id);
         }
-
         public List<ContatoModel> BuscarAllContatos()
         {
             //Lista tudo que tem no db
             return _bancoContext.Contatos.ToList();
         }
-
         public bool Apagar(int id)
         {
 

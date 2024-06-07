@@ -13,10 +13,10 @@ public class ContatoController : Controller
     {
         _contatoRepositorio = contatoRepositorio;
     }
-    public IActionResult Index()
+
+    public IActionResult Index(UsuarioModel usuario)
     {
-        List<ContatoModel> contatos = _contatoRepositorio.BuscarAllContatos();
-        return View(contatos);
+        return View(usuario);
     }
     // Se não informa oq é ele vira um método get
     public IActionResult Criar2()

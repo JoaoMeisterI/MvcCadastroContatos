@@ -1,4 +1,4 @@
-﻿@model List<ContatoModel>
+﻿@model UsuarioModel
 @{
     ViewData["Title"] = "Listagem de Contatos";
 }
@@ -25,6 +25,7 @@
     <br />
   
     <h1 class="mt-5 fs-2">Listagem de Contatos</h1>
+    <p>User: @Model.Nome</p>
     <table class="table mt-5" id="table-contato">
         <thead>
             <tr>
@@ -36,7 +37,7 @@
             </tr>
         </thead>
         <tbody>
-           @if (Model != null && Model.Any())
+         @*   @if (Model != null && Model.Any())
             {
                 foreach(ContatoModel contato in Model)
                 {
@@ -58,7 +59,7 @@
             else
             {
                 <tr class="odd"><td valign="top" colspan="5">Nenhum Contato Encontrado</td></tr>
-            }
+            } *@
         </tbody>
     </table>
 </div>

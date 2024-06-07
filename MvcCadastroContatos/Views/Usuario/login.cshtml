@@ -1,0 +1,31 @@
+﻿@model UsuarioModel
+@{
+    ViewData["Title"] = "Criar Contato";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login de Usuário</h1>
+</div>
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<form asp-controller="Usuario" asp-action="Login" method="post">
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input type="login" asp-for="Login" class="form-control" placeholder="Digite seu Login">
+    </div>
+
+    <div class="form-group">
+        <label for="Senha">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" placeholder="Digite sua Senha">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4 d-block w-100">Entrar</button>
+    <a class="btn btn-dark mt-4 d-block w-100 " asp-controller="Usuario" asp-action="Criar" role="button">Cadastrar</a>
+</form>
