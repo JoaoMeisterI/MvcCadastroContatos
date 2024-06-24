@@ -91,20 +91,23 @@ public class UsuarioController : Controller
             return RedirectToAction("Index");
         }
     }
-
     [HttpPost]
-    public IActionResult Login(UsuarioModel usuario)
+    public IActionResult CriarContato(ContatoModel contato,int id)
     {
-        var usuarioExistente = _usuarioRepositorio.ValidaUser(usuario);
-        
-        if (usuarioExistente!=null)
+        try
         {
-            TempData["MensagemSucesso"] = $"Login realizada com sucesso !!";
-            return RedirectToAction("Index", "Contato", usuarioExistente);
+           
+            UsuarioModel user = _usuarioRepositorio.BuscarUserId(id);
+            _usuarioRepositorio.Atualizar(user,contato);
+            TempData["MensagemSucesso"] = "Contato Adicionado com Sucesso!!";
+            return RedirectToAction("Index", "Contato", user);
+            //Caso o método tivesse outro nome teria que fazer isso
         }
-        TempData["MensagemErro"] = $"Usuário não credenciado, Realize o cadastro no botão Cadastrar !!";
-        return View(usuario);
+        catch (Exception erro)
+        {
+            TempData["MensagemErro"] = $"Não foi Possível Adicionar o contato, ERRO: {erro.Message} !!";
+            return RedirectToAction("Index", "Contato");
+        }
+       
     }
-
-
 }

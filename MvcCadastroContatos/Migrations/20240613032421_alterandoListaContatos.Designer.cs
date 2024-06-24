@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcCadastroContatos.Data;
 
@@ -11,9 +12,11 @@ using MvcCadastroContatos.Data;
 namespace MvcCadastroContatos.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20240613032421_alterandoListaContatos")]
+    partial class alterandoListaContatos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,12 +45,12 @@ namespace MvcCadastroContatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UsuarioId")
+                    b.Property<int>("UsuarioModelId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("UsuarioModelId");
 
                     b.ToTable("Contatos");
                 });
@@ -93,15 +96,17 @@ namespace MvcCadastroContatos.Migrations
             modelBuilder.Entity("MvcCadastroContatos.Models.ContatoModel", b =>
                 {
                     b.HasOne("MvcCadastroContatos.Models.UsuarioModel", "Usuario")
-                        .WithMany("ListaContatos")
-                        .HasForeignKey("UsuarioId");
+                        .WithMany("ContatosUsuario")
+                        .HasForeignKey("UsuarioModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("MvcCadastroContatos.Models.UsuarioModel", b =>
                 {
-                    b.Navigation("ListaContatos");
+                    b.Navigation("ContatosUsuario");
                 });
 #pragma warning restore 612, 618
         }

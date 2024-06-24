@@ -17,10 +17,13 @@ public class ContatoController : Controller
     public IActionResult Index(UsuarioModel usuario)
     {
         return View(usuario);
+        // tem que corrigir a questão de como colocar uma lista no db - migrations
     }
     // Se não informa oq é ele vira um método get
-    public IActionResult Criar2()
+    public IActionResult Criar2(int id)
     {
+        //variavel temporaria para usar em views
+        TempData["idUsuario"] = id;
         return View();
     }
     public IActionResult Editar(int id)
@@ -41,14 +44,12 @@ public class ContatoController : Controller
         try
         {
             // Verifica se os dados correspondem com a model
-            if (ModelState.IsValid)
-            {
+          
                 //PARA RETORNAR VARIÁVEIS TEMPORÁRIAS USAMOS O RECURSO TempData["nomeDaVar"]
-                _contatoRepositorio.Adicionar(contato);
-                TempData["MensagemSucesso"] = "Contato Incluído com Sucesso!!";
-                return RedirectToAction("Index");
-            }
-            return View(contato);
+            _contatoRepositorio.Adicionar(contato);
+            TempData["MensagemSucesso"] = "Contato Incluído com Sucesso!!";
+            return RedirectToAction("Index");
+            
         }
         catch (Exception erro)
         {

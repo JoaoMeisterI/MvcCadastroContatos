@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MvcCadastroContatos.Data;
+using MvcCadastroContatos.Helper;
 using MvcCadastroContatos.Repositorio;
 
 public class Startup
@@ -25,8 +26,12 @@ public class Startup
         services.AddEntityFrameworkSqlServer()
             //Indica o uso do SQLSERVER E ADICIONA O CONTEXTO DO NOSSO DB JUNTO COM A CONNECT STRING DEFINIDA NA APPSETTINGS
         .AddDbContext<BancoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         services.AddScoped<IContatosRepositorio, ContatosRepositorio>();
         services.AddScoped<IUsuariosRepositiorio, UsuarioRepositorio>();
+        services.AddScoped<ISessao, Sessao>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +63,7 @@ public class Startup
         {
             endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Usuario}/{action=Login}/{id?}");
+                pattern: "{controller=Login}/{action=Index}/{id?}");
         });
     }
 }

@@ -43,7 +43,7 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
         
     }
 
-    public UsuarioModel Atualizar(UsuarioModel usuario)
+    public UsuarioModel Atualizar(UsuarioModel usuario,ContatoModel contato=null)
     {
         UsuarioModel usuarioAtualizado = BuscarUserId(usuario.Id);
 
@@ -54,10 +54,20 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
         usuarioAtualizado.Login = usuario.Login;
         usuarioAtualizado.Perfil = usuario.Perfil;
         usuarioAtualizado.DataAtualizacao = DateTime.UtcNow;
+       
+        if (contato != null)
+        {
+            if (usuarioAtualizado.ListaContatos == null)
+            {
+                usuarioAtualizado.ListaContatos = new List<ContatoModel>();
+            }
+                usuarioAtualizado.ListaContatos.Add(contato);
+        }
+
 
         _bancoContext.Update(usuarioAtualizado);
         _bancoContext.SaveChanges();
-         return(usuario);
+        return usuarioAtualizado;
 
     }
     public UsuarioModel BuscarUserId(int id)
@@ -65,11 +75,11 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
         return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
     }
 
-    public UsuarioModel ValidaUser(UsuarioModel usuario)
+    public UsuarioModel ValidaUser(string login,string senha)
     {
         try
         {
-            UsuarioModel usuarioExistente = _bancoContext.Usuarios.FirstOrDefault(x => x.Login == usuario.Login && x.Senha == usuario.Senha);
+            UsuarioModel usuarioExistente = _bancoContext.Usuarios.FirstOrDefault(x => x.Login == login && x.Senha == senha);
             return usuarioExistente;
         }
         catch (Exception erro)

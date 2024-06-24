@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MvcCadastroContatos.Data;
 
@@ -11,9 +12,11 @@ using MvcCadastroContatos.Data;
 namespace MvcCadastroContatos.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20240618020814_alterandoListaContatos2")]
+    partial class alterandoListaContatos2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,7 +96,7 @@ namespace MvcCadastroContatos.Migrations
             modelBuilder.Entity("MvcCadastroContatos.Models.ContatoModel", b =>
                 {
                     b.HasOne("MvcCadastroContatos.Models.UsuarioModel", "Usuario")
-                        .WithMany("ListaContatos")
+                        .WithMany("ContatosUsuario")
                         .HasForeignKey("UsuarioId");
 
                     b.Navigation("Usuario");
@@ -101,7 +104,7 @@ namespace MvcCadastroContatos.Migrations
 
             modelBuilder.Entity("MvcCadastroContatos.Models.UsuarioModel", b =>
                 {
-                    b.Navigation("ListaContatos");
+                    b.Navigation("ContatosUsuario");
                 });
 #pragma warning restore 612, 618
         }

@@ -13,6 +13,5 @@ public class UsuarioModel
     public string Senha { get; set; }
     public DateTime DataCadastro { get; set; }
     public DateTime DataAtualizacao { get; set; }
-    public ICollection<ContatoModel>? ContatosUsuário { get; set;}
-
+    public virtual List<ContatoModel> ListaContatos { get; set; } = new List<ContatoModel>();
 }

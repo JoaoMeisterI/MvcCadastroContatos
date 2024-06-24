@@ -1,6 +1,7 @@
-﻿@model UsuarioModel
+@model UsuarioModel
 @{
     ViewData["Title"] = "Criar Contato";
+    Layout="_LayoutDeslogado";
 }
 
 <div class="text-center">
@@ -15,7 +16,7 @@
     </div>
 }
 
-<form asp-controller="Usuario" asp-action="Login" method="post">
+<form asp-controller="Login" asp-action="Login" method="post">
     <div class="form-group">
         <label for="login">Login</label>
         <input type="login" asp-for="Login" class="form-control" placeholder="Digite seu Login">

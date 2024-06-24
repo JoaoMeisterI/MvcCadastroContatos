@@ -5,7 +5,7 @@
 
 <div class="text-center">
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar2">Adicionar Novo Contato</a>
+        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar2" asp-route-id="@Model.Id">Adicionar Novo Contato</a>
     </div>
     <br />
     @if(TempData["MensagemSucesso"]!=null)
@@ -37,9 +37,9 @@
             </tr>
         </thead>
         <tbody>
-         @*   @if (Model != null && Model.Any())
+        @if (Model?.ListaContatos != null)
             {
-                foreach(ContatoModel contato in Model)
+                @foreach(ContatoModel contato in Model.ListaContatos)
                 {
                     <tr>
                         <td scope="row">@contato.Id</td>
@@ -56,10 +56,6 @@
                     </tr>
                 }
             }
-            else
-            {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum Contato Encontrado</td></tr>
-            } *@
         </tbody>
     </table>
 </div>

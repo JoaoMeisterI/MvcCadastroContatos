@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MvcCadastroContatos.Data;
 using MvcCadastroContatos.Models;
+using MvcCadastroContatos.Repositorio;
 
 namespace MvcCadastroContatos.Repositorio
 {
@@ -8,11 +9,12 @@ namespace MvcCadastroContatos.Repositorio
     {
         //A gente vai injetar o contexto por meio
         // de um construtor, esse contexto vai ser nossa interação direta com o DB
-        private readonly BancoContext _bancoContext;
+        public readonly BancoContext _bancoContext;
         public ContatosRepositorio(BancoContext bancoContext)
         {
             _bancoContext = bancoContext;
         }
+        
         public ContatoModel Adicionar(ContatoModel contato)
         {
             //Gravar em um banco de dados
@@ -43,6 +45,7 @@ namespace MvcCadastroContatos.Repositorio
         public ContatoModel BuscaContatoId(int id)
         {
             return _bancoContext.Contatos.FirstOrDefault(x=>x.Id==id);
+            
         }
         public List<ContatoModel> BuscarAllContatos()
         {
