@@ -1,11 +1,11 @@
-﻿@model UsuarioModel
+﻿@model List<ContatoModel>
 @{
     ViewData["Title"] = "Listagem de Contatos";
 }
 
 <div class="text-center">
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar2" asp-route-id="@Model.Id">Adicionar Novo Contato</a>
+        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar2">Adicionar Novo Contato</a>
     </div>
     <br />
     @if(TempData["MensagemSucesso"]!=null)
@@ -25,7 +25,6 @@
     <br />
   
     <h1 class="mt-5 fs-2">Listagem de Contatos</h1>
-    <p>User: @Model.Nome</p>
     <table class="table mt-5" id="table-contato">
         <thead>
             <tr>
@@ -37,9 +36,9 @@
             </tr>
         </thead>
         <tbody>
-        @if (Model?.ListaContatos != null)
+        @if (Model!= null)
             {
-                @foreach(ContatoModel contato in Model.ListaContatos)
+                @foreach(ContatoModel contato in Model)
                 {
                     <tr>
                         <td scope="row">@contato.Id</td>

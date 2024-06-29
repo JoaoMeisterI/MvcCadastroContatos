@@ -7,7 +7,13 @@
 <div class="text-center">
     <h1 class="display-4">Login de Usuário</h1>
 </div>
-
+ @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
 @if (TempData["MensagemErro"] != null)
 {
     <div class="alert alert-danger" role="alert">
@@ -28,5 +34,5 @@
     </div>
 
     <button type="submit" class="btn btn-primary mt-4 d-block w-100">Entrar</button>
-    <a class="btn btn-dark mt-4 d-block w-100 " asp-controller="Usuario" asp-action="Criar" role="button">Cadastrar</a>
+    <a class="btn btn-dark mt-4 d-block w-100 " asp-controller="Usuario" asp-action="CriarNovoUser" role="button">Cadastrar</a>
 </form>

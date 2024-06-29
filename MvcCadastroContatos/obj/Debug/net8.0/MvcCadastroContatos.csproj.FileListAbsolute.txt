@@ -135,3 +135,4 @@ C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroC
 C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos\obj\Debug\net8.0\MvcCadastroContatos.csproj.AssemblyReference.cache
 C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos\obj\Debug\net8.0\MvcCadas.4734F09A.Up2Date
 C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos\obj\Debug\net8.0\MvcCadastroContatos.sourcelink.json
+C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos\bin\Debug\net8.0\Newtonsoft.Json.dll

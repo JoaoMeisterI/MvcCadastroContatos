@@ -1,113 +1,110 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MvcCadastroContatos.Models;
 using MvcCadastroContatos.Repositorio;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace MvcCadastroContatos.Controllers;
-
-public class UsuarioController : Controller
+namespace MvcCadastroContatos.Controllers
 {
-    private readonly IUsuariosRepositiorio _usuarioRepositorio;
-    public UsuarioController(IUsuariosRepositiorio usuarioRepositorio)
+    public class UsuarioController : Controller
     {
-        _usuarioRepositorio = usuarioRepositorio;
-    }
-
-    public IActionResult Login()
-    {
-        return View();
-    }
-    public IActionResult Criar() 
-    {
-        return View();
-    }
-
-    public IActionResult Editar(int Id)
-    {
-        try
+        private readonly IUsuariosRepositiorio _usuarioRepositorio;
+        public UsuarioController(IUsuariosRepositiorio usuarioRepositorio)
         {
-            UsuarioModel usuario = _usuarioRepositorio.BuscarUserId(Id);
-            return View(usuario);
+            _usuarioRepositorio = usuarioRepositorio;
         }
-        catch
-        {
-            TempData["MensagemErro"] = $"Usuário não existe !!";
-            return RedirectToAction("Index", "Contato");
-        }
-        
-    }
 
-    public IActionResult Deletar(int id)
-    {
-        try
+        public IActionResult Index()
         {
-            _usuarioRepositorio.Apagar(id);
-            TempData["MensagemSucesso"] = "Usuário Removida com Sucesso!!";
-            return RedirectToAction("Index", "Contato");
+            List<UsuarioModel> usuarios = _usuarioRepositorio.BuscaTodos();
+            return View(usuarios);
         }
-        catch(Exception erro)
-        {
-            TempData["MensagemErro"] = $"Não foi Possível Remover o Usuário, ERRO: {erro.Message} !!";
-            return RedirectToAction("Index", "Contato");
-        }
-    }
 
-    [HttpPost]
-    public IActionResult Criar(UsuarioModel usuario)
-    {
-        try
+        public IActionResult Criar()
         {
-            
-           _usuarioRepositorio.Adicionar(usuario);
-           TempData["MensagemSucesso"] = "Usuário Incluido com Sucesso!!";
-
-            return RedirectToAction("Login");
+            return View();
         }
-        catch (Exception erro)
-        {
-            TempData["MensagemErro"] = $"Não foi Possível Adicionar o Contato, ERRO: {erro}!";
-            return RedirectToAction("Contato/Index");
-        }
-    }
 
-    [HttpPost]
-    public IActionResult Editar(UsuarioModel usuario)
-    {
-        try
+        public IActionResult Editar(int id)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _usuarioRepositorio.Atualizar(usuario);
-                TempData["MensagemSucesso"] = "Usuario Alterado com Sucesso!!";
+                UsuarioModel usuario = _usuarioRepositorio.BuscarUserId(id);
+                return View(usuario);
+            }
+            catch
+            {
+                TempData["MensagemErro"] = "Usuário não existe !!";
                 return RedirectToAction("Index");
             }
-            //Caso o método tivesse outro nome teria que fazer isso
-            return View(usuario);
         }
-        catch (Exception erro)
+
+        public IActionResult Deletar(int id)
         {
-            TempData["MensagemErro"] = $"Não foi Possível Alterar o Usuario, ERRO: {erro.Message} !!";
-            return RedirectToAction("Index");
+            try
+            {
+                _usuarioRepositorio.Apagar(id);
+                TempData["MensagemSucesso"] = "Usuário Removido com Sucesso!!";
+                return RedirectToAction("Index","Usuario");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Não foi Possível Remover o Usuário, ERRO: {erro.Message} !!";
+                return RedirectToAction("Index","Usuario");
+            }
+            
         }
-    }
-    [HttpPost]
-    public IActionResult CriarContato(ContatoModel contato,int id)
-    {
-        try
+
+        [HttpPost]
+        public IActionResult Criar(UsuarioModel usuario)
         {
-           
-            UsuarioModel user = _usuarioRepositorio.BuscarUserId(id);
-            _usuarioRepositorio.Atualizar(user,contato);
-            TempData["MensagemSucesso"] = "Contato Adicionado com Sucesso!!";
-            return RedirectToAction("Index", "Contato", user);
-            //Caso o método tivesse outro nome teria que fazer isso
+            try{
+            
+            
+                _usuarioRepositorio.Adicionar(usuario);
+                TempData["MensagemSucesso"] = "Usuário Incluído com Sucesso!!";
+                return RedirectToAction("Index","Usuario");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Não foi Possível Adicionar o Contato, ERRO: {erro.Message}!";
+                return RedirectToAction("Index","Usuario");
+            }
         }
-        catch (Exception erro)
+
+        public IActionResult CriarNovoUser(UsuarioModel usuario)
         {
-            TempData["MensagemErro"] = $"Não foi Possível Adicionar o contato, ERRO: {erro.Message} !!";
-            return RedirectToAction("Index", "Contato");
+            try{
+            
+            
+                _usuarioRepositorio.Adicionar(usuario);
+                TempData["MensagemSucesso"] = "Usuário Incluído com Sucesso!!";
+                return RedirectToAction("Index","Login");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Não foi Possível Adicionar o Contato, ERRO: {erro.Message}!";
+                return RedirectToAction("Index","Login");
+            }
         }
-       
+
+
+        [HttpPost]
+        public IActionResult Editar(UsuarioModel usuario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _usuarioRepositorio.Atualizar(usuario);
+                    TempData["MensagemSucesso"] = "Usuário Alterado com Sucesso!!";
+                    return RedirectToAction("Index");
+                }
+                return View(usuario);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Não foi Possível Alterar o Usuário, ERRO: {erro.Message} !!";
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

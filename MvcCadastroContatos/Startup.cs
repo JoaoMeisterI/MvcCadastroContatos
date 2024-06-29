@@ -26,12 +26,17 @@ public class Startup
         services.AddEntityFrameworkSqlServer()
             //Indica o uso do SQLSERVER E ADICIONA O CONTEXTO DO NOSSO DB JUNTO COM A CONNECT STRING DEFINIDA NA APPSETTINGS
         .AddDbContext<BancoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataBase")));
-
+        //Isso para configurar a sessao
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         services.AddScoped<IContatosRepositorio, ContatosRepositorio>();
         services.AddScoped<IUsuariosRepositiorio, UsuarioRepositorio>();
         services.AddScoped<ISessao, Sessao>();
+
+        services.AddSession(o => {
+            o.Cookie.HttpOnly=true;
+            o.Cookie.IsEssential=true;
+        });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +62,7 @@ public class Startup
         app.UseRouting();
         //Utilizado em aplicativos que tem regras de autorização 
         app.UseAuthorization();
-
+        app.UseSession();
         //DEFINE COMO AS REQUISIÇÕES DEVEM SER MAPEADAS PARA OS ENDPOITNS DAS CONTROLLERS
         app.UseEndpoints(endpoints =>
         {

@@ -14,9 +14,10 @@ public class ContatoController : Controller
         _contatoRepositorio = contatoRepositorio;
     }
 
-    public IActionResult Index(UsuarioModel usuario)
+    public IActionResult Index()
     {
-        return View(usuario);
+        List<ContatoModel> contatos = _contatoRepositorio.BuscarAllContatos();
+        return View(contatos);
         // tem que corrigir a questão de como colocar uma lista no db - migrations
     }
     // Se não informa oq é ele vira um método get
@@ -48,13 +49,13 @@ public class ContatoController : Controller
                 //PARA RETORNAR VARIÁVEIS TEMPORÁRIAS USAMOS O RECURSO TempData["nomeDaVar"]
             _contatoRepositorio.Adicionar(contato);
             TempData["MensagemSucesso"] = "Contato Incluído com Sucesso!!";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Contato");
             
         }
         catch (Exception erro)
         {
             TempData["MensagemErro"] = $"Não foi Possível Incluir o Contato, ERRO: {erro.Message} !!";
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index","Contato");
 
         }
     }
@@ -68,7 +69,7 @@ public class ContatoController : Controller
             {
                 _contatoRepositorio.Atualizar(contato);
                 TempData["MensagemSucesso"] = "Contato Alterado com Sucesso!!";
-                return RedirectToAction("Index");
+                 return RedirectToAction("Index","Contato");
             }
             //Caso o método tivesse outro nome teria que fazer isso
             return View(contato);
@@ -76,7 +77,7 @@ public class ContatoController : Controller
         catch (Exception erro)
         {
             TempData["MensagemErro"] = $"Não foi Possível Alterar o Contato, ERRO: {erro.Message} !!";
-            return RedirectToAction("Index");
+             return RedirectToAction("Index","Contato");
         }
     }
 
@@ -88,14 +89,14 @@ public class ContatoController : Controller
             {
                _contatoRepositorio.Apagar(id);
                 TempData["MensagemSucesso"] = "Contato Removido com Sucesso!!";
-                return RedirectToAction("Index");
+                 return RedirectToAction("Index","Contato");
             }
             return View();
         }
         catch (Exception erro)
         {
             TempData["MensagemErro"] = $"Não foi Possível Remover o Contato, ERRO: {erro.Message} !!";
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Contato");
         }
         
     }

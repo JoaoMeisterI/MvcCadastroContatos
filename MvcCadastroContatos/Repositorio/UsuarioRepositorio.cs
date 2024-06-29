@@ -55,14 +55,7 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
         usuarioAtualizado.Perfil = usuario.Perfil;
         usuarioAtualizado.DataAtualizacao = DateTime.UtcNow;
        
-        if (contato != null)
-        {
-            if (usuarioAtualizado.ListaContatos == null)
-            {
-                usuarioAtualizado.ListaContatos = new List<ContatoModel>();
-            }
-                usuarioAtualizado.ListaContatos.Add(contato);
-        }
+     
 
 
         _bancoContext.Update(usuarioAtualizado);
@@ -75,6 +68,10 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
         return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
     }
 
+    public List<UsuarioModel> BuscaTodos()
+    {
+        return _bancoContext.Usuarios.ToList();
+    }
     public UsuarioModel ValidaUser(string login,string senha)
     {
         try

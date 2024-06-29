@@ -8,5 +8,6 @@ public interface IUsuariosRepositiorio
     bool Apagar(int id);
     UsuarioModel Atualizar(UsuarioModel usuario,ContatoModel contato=null);
     UsuarioModel BuscarUserId(int id);
+    List<UsuarioModel> BuscaTodos();
     UsuarioModel ValidaUser(string login,string senha);
 }
