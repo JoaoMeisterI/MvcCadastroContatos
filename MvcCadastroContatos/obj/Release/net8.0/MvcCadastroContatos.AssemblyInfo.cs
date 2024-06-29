@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MvcCadastroContatos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69ee7402135a704f41695358f40d9234c76c3f5b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc3f459cf12db077fdd80e140221fdd9394e897a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MvcCadastroContatos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MvcCadastroContatos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
