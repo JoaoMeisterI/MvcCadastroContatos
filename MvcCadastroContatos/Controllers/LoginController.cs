@@ -15,7 +15,7 @@ public class LoginController : Controller
         _usuarioRepositorio = usuarioRepositorio;
         _sessao = sessao;
     }
-    public IActionResult Index()
+    public IActionResult Index2()
     {
         //Se o usuário já está logado, manda para a home
         if(_sessao.BuscarSessaoUsuario() != null) return RedirectToAction("Index","Home");
@@ -34,13 +34,13 @@ public class LoginController : Controller
             return RedirectToAction("Index", "Home", usuarioExistente);
         }
         TempData["MensagemErro"] = $"Usuário não credenciado, Realize o cadastro no botão Cadastrar !!";
-        return RedirectToAction("Index", "Login");
+        return RedirectToAction("Index2", "Login");
     }
 
     public IActionResult Sair()
     {
         _sessao.RemoverSessaoUsuario();
-        return RedirectToAction("Index", "Login");
+        return RedirectToAction("Index2", "Login");
     }
     
 }

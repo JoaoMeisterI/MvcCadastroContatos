@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCadastroContatos.Helper;
 using MvcCadastroContatos.Models;
 using MvcCadastroContatos.Repositorio;
 
@@ -7,9 +8,11 @@ namespace MvcCadastroContatos.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuariosRepositiorio _usuarioRepositorio;
-        public UsuarioController(IUsuariosRepositiorio usuarioRepositorio)
+        private readonly ISessao _sessao;
+        public UsuarioController(IUsuariosRepositiorio usuarioRepositorio, ISessao sessao)
         {
             _usuarioRepositorio = usuarioRepositorio;
+            _sessao = sessao;
         }
 
         public IActionResult Index()
@@ -18,7 +21,7 @@ namespace MvcCadastroContatos.Controllers
             return View(usuarios);
         }
 
-        public IActionResult Criar()
+        public IActionResult Criar2()
         {
             return View();
         }
@@ -54,14 +57,15 @@ namespace MvcCadastroContatos.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(UsuarioModel usuario)
+        public IActionResult Criar2(UsuarioModel usuario)
         {
             try{
-            
-            
                 _usuarioRepositorio.Adicionar(usuario);
                 TempData["MensagemSucesso"] = "Usuário Incluído com Sucesso!!";
-                return RedirectToAction("Index","Usuario");
+
+                if(_sessao.BuscarSessaoUsuario() != null) return RedirectToAction("Index","Usuario");
+
+                return RedirectToAction("Index2","Login");
             }
             catch (Exception erro)
             {
@@ -69,23 +73,6 @@ namespace MvcCadastroContatos.Controllers
                 return RedirectToAction("Index","Usuario");
             }
         }
-
-        public IActionResult CriarNovoUser(UsuarioModel usuario)
-        {
-            try{
-            
-            
-                _usuarioRepositorio.Adicionar(usuario);
-                TempData["MensagemSucesso"] = "Usuário Incluído com Sucesso!!";
-                return RedirectToAction("Index","Login");
-            }
-            catch (Exception erro)
-            {
-                TempData["MensagemErro"] = $"Não foi Possível Adicionar o Contato, ERRO: {erro.Message}!";
-                return RedirectToAction("Index","Login");
-            }
-        }
-
 
         [HttpPost]
         public IActionResult Editar(UsuarioModel usuario)

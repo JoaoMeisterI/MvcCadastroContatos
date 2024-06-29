@@ -1,17 +1,14 @@
 ﻿@using MvcCadastroContatos.Enum
-
 @model UsuarioModel
 @{
-    ViewData["Title"] = "Criar Contato";
+    ViewData["Title"] = "Editar Contato";
 }
 
 <div class="text-center">
     <h1 class="display-4">Cadastro de Usuário</h1>
 </div>
 
-<!--Erro está no retornar do login>
-
-<form asp-controller="Usuario" asp-action="Criar" method="post" >
+<form asp-controller="Usuario" asp-action="Criar2" method="post">
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do contato">
@@ -19,7 +16,7 @@
 
     <div class="form-group">
         <label for="login">Login</label>
-        <input type="login" asp-for="Login" class="form-control" placeholder="Digite seu Login">
+        <input type="text" asp-for="Login" class="form-control" placeholder="Digite seu Login">
     </div>
 
     <div class="form-group">
@@ -31,6 +28,7 @@
         <label for="Senha">Senha</label>
         <input type="password" asp-for="Senha" class="form-control" placeholder="Digite sua Senha">
     </div>
+
     <div class="form-group">
         <label for="Perfil" class="mb-2">Perfil</label>
         <select asp-for="Perfil" class="form-control">
