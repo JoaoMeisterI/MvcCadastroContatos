@@ -16,10 +16,10 @@
     <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" asp-for="Name" class="form-control" placeholder="Digite o nome do contato">
-        <!--Mostrando as mensagens de validação-->
+
         @Html.ValidationMessageFor(x => x.Name)
     </div>
-    <!--AQUI VOCÊ INDICA O PROP DA SUA CLASSE PARA PASSAR-->
+
     <div class="form-group">
         <label for="email">E-mail</label>
         <input type="email" asp-for="Email" class="form-control" placeholder="Digite o Email do constato">

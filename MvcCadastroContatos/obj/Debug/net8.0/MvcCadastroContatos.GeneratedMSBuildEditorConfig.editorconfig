@@ -9,75 +9,75 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MvcCadastroContatos
 build_property.RootNamespace = MvcCadastroContatos
-build_property.ProjectDir = C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos\
+build_property.ProjectDir = c:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos
+build_property.MSBuildProjectDirectory = c:\Users\chonc\OneDrive\Área de Trabalho\MVCCSHARP\ProjetoContatos\MvcCadastroContatos\MvcCadastroContatos
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/ApagarConfirmacao.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/ApagarConfirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGF0b1xBcGFnYXJDb25maXJtYWNhby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/Criar2.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/Criar2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGF0b1xDcmlhcjIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/Editar.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGF0b1xFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/Index.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Contato/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGF0b1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Home/index.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Home/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Login/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5caW5kZXguY3NodG1s
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Login/index2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5caW5kZXgyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/Components/Menu/default.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/Components/Menu/default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWVudVxkZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/Error.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/_LayoutDeslogado.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/_LayoutDeslogado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREZXNsb2dhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Usuario/Criar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmlhci5jc2h0bWw=
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Usuario/Criar2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xDcmlhcjIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Usuario/Editar.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Usuario/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Usuario/index.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Usuario/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xpbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/_ViewImports.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/_ViewStart.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/_Layout.cshtml]
+[c:/Users/chonc/OneDrive/Área de Trabalho/MVCCSHARP/ProjetoContatos/MvcCadastroContatos/MvcCadastroContatos/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-771dagbbhw
