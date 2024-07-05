@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCadastroContatos.Filters;
 using MvcCadastroContatos.Helper;
 using MvcCadastroContatos.Models;
 using MvcCadastroContatos.Repositorio;
 
 namespace MvcCadastroContatos.Controllers
 {
+    [PaginaParaAdmin]
     public class UsuarioController : Controller
     {
         private readonly IUsuariosRepositiorio _usuarioRepositorio;

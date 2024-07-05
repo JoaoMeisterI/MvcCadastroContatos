@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCadastroContatos.Filters;
 using MvcCadastroContatos.Models;
 using MvcCadastroContatos.Repositorio;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MvcCadastroContatos.Controllers;
 
+[PaginaUserLogado]
 public class ContatoController : Controller
 {
     //Criando instancia do contatoRepositorio via construtor
