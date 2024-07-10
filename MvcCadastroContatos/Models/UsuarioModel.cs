@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 using MvcCadastroContatos.Enum;
+using MvcCadastroContatos.Helper;
 
 namespace MvcCadastroContatos.Models;
 
@@ -13,4 +14,12 @@ public class UsuarioModel
     public string Senha { get; set; }
     public DateTime DataCadastro { get; set; }
     public DateTime DataAtualizacao { get; set; }
+
+    public string SetSenhaHash(String Senha)
+    {
+        //Para isso que serve o this, método de extensão isso
+        Senha = Senha.GerarHash();
+
+        return Senha;
+    }
 }

@@ -15,13 +15,10 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
     public UsuarioModel Adicionar(UsuarioModel usuario)
     {
         if(usuario == null) throw new System.Exception("Contato não pode ser vazio");
-
         DateTime utcNow = DateTime.UtcNow;
         usuario.DataCadastro = utcNow;
         usuario.DataAtualizacao = new DateTime(2001, 1, 1);
-        
-
-
+        usuario.Senha = usuario.SetSenhaHash(usuario.Senha);
         _bancoContext.Usuarios.Add(usuario);
         _bancoContext.SaveChanges();
         return usuario;
@@ -46,23 +43,24 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
     public UsuarioModel Atualizar(UsuarioModel usuario,ContatoModel contato=null)
     {
         UsuarioModel usuarioAtualizado = BuscarUserId(usuario.Id);
-
         if (usuarioAtualizado==null) throw new System.Exception("Não foi possível realizar a atualização do usuário");
-
         usuarioAtualizado.Nome = usuario.Nome;
         usuarioAtualizado.Senha = usuario.Senha;
         usuarioAtualizado.Login = usuario.Login;
         usuarioAtualizado.Perfil = usuario.Perfil;
         usuarioAtualizado.DataAtualizacao = DateTime.UtcNow;
        
-     
-
-
         _bancoContext.Update(usuarioAtualizado);
         _bancoContext.SaveChanges();
         return usuarioAtualizado;
 
     }
+
+    public UsuarioModel BuscarEmailLogin(string login, string email)
+    {
+        return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper() && x.Email.ToUpper() == email.ToUpper());
+    }
+
     public UsuarioModel BuscarUserId(int id)
     {
         return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
@@ -76,6 +74,8 @@ public class UsuarioRepositorio : IUsuariosRepositiorio
     {
         try
         {
+            UsuarioModel user = new UsuarioModel();
+            senha = user.SetSenhaHash(senha);
             UsuarioModel usuarioExistente = _bancoContext.Usuarios.FirstOrDefault(x => x.Login == login && x.Senha == senha);
             return usuarioExistente;
         }

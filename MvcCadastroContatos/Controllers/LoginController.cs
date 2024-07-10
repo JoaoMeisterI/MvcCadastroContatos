@@ -22,6 +22,11 @@ public class LoginController : Controller
         return View();
     }
 
+    public IActionResult RedefinirSenha()
+    {
+        return View();
+    }
+
     [HttpPost]
     public IActionResult Login(LoginModel usuario)
     {
@@ -42,5 +47,19 @@ public class LoginController : Controller
         _sessao.RemoverSessaoUsuario();
         return RedirectToAction("Index2", "Login");
     }
-    
+
+    [HttpPost] 
+    public IActionResult EnviarLinkParaMudarSenha(RedefinirSenhaModel redefinirSenhaModel)
+    {
+        var usuarioExistente = _usuarioRepositorio.BuscarEmailLogin(redefinirSenhaModel.Login,redefinirSenhaModel.Email);
+        
+        if (usuarioExistente!=null)
+        {
+            TempData["MensagemSucesso"] = $"Enviamos para seu E-mail uma nova senha!!";
+            _sessao.CriarSessaoDoUsuario(usuarioExistente);
+            return RedirectToAction("Index2", "Login", usuarioExistente);
+        }
+        TempData["MensagemErro"] = $"Não foi possível atualizar a senha !!";
+        return RedirectToAction("Index2", "Login");
+    }
 }

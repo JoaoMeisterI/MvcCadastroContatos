@@ -10,4 +10,6 @@ public interface IUsuariosRepositiorio
     UsuarioModel BuscarUserId(int id);
     List<UsuarioModel> BuscaTodos();
     UsuarioModel ValidaUser(string login,string senha);
+    UsuarioModel BuscarEmailLogin(string login,string email);
+
 }

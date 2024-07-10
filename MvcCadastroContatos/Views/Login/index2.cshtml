@@ -32,7 +32,12 @@
         <label for="Senha">Senha</label>
         <input type="password" asp-for="Senha" class="form-control" placeholder="Digite sua Senha">
     </div>
-
+    @if (TempData["MensagemErro"] != null){
+        <p class="mb-4 text-sm-center mx-auto">
+        Esqueceu a senha ? 
+            <a asp-action="RedefinirSenha" asp-controller="Login" class="text-primary text-gradient font-weight-bold">Redefinir Minha Senha</a>
+        </p>
+    }
     <button type="submit" class="btn btn-primary mt-4 d-block w-100">Entrar</button>
     <a class="btn btn-dark mt-4 d-block w-100 " asp-controller="Usuario" asp-action="Criar2" role="button">Cadastrar</a>
 </form>
